@@ -1,0 +1,130 @@
+:root {
+  --clr-primary: #602bb6;
+  --clr-background: #f4f0f2;
+  --clr-light: #d1d1d1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+nav {
+  background-color: var(--clr-background);
+  -webkit-box-shadow: 0px 6px 21px 1px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 6px 21px 1px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 6px 21px 1px rgba(0, 0, 0, 0.6);
+}
+
+.main-container {
+  margin: 0 5rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.navigation_reg-log {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Log-In {
+  padding: 0.2em 0.8em;
+  color: var(--clr-primary);
+  transition-duration: 1s;
+}
+
+.Log-In:hover {
+  background-color: var(--clr-primary);
+  color: var(--clr-background);
+  border-radius: 48px 48px 48px 48px;
+  -moz-border-radius: 48px 48px 48px 48px;
+  -webkit-border-radius: 48px 48px 48px 48px;
+  border: 0px solid #000000;
+}
+.Sign-Up {
+  padding: 0.2em 0.8em;
+  color: var(--clr-primary);
+  transition-duration: 1s;
+}
+
+.Sign-Up:hover {
+  background-color: var(--clr-primary);
+  color: var(--clr-background);
+  border-radius: 48px 48px 48px 48px;
+  -moz-border-radius: 48px 48px 48px 48px;
+  -webkit-border-radius: 48px 48px 48px 48px;
+  border: 0px solid #000000;
+}
+
+ul {
+  display: flex;
+  gap: 3em;
+}
+
+.ungu {
+  color: var(--clr-primary);
+}
+
+section {
+  margin-top: 5rem;
+}
+
+.content-signup {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.content-signup h3 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+form {
+  margin-top: 15px;
+  font-size: 9pt;
+  background-color: var(--clr-light);
+  padding: 2rem;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+}
+
+button {
+  color: var(--clr-primary);
+  background-color: var(--clr-background);
+  border: none;
+  padding: 0.5em 1em;
+  transition-duration: 0.8s;
+}
+
+button:hover {
+  color: var(--clr-light);
+  background-color: var(--clr-primary);
+  border: none;
+  padding: 0.5em 1em;
+}
