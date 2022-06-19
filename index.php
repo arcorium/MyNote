@@ -10,7 +10,9 @@
 <body>
     <section>
         <nav>
-            <img class="logo" src="LOGO_UPNVJATIM.png">
+            <a href="#">
+                <img class="logo" src="asset/mynotelg.png">
+            </a>
             <ul>
                 <li><a class="btn" href="login.php">Log in</a></li>
                 <li><a class="btn-2" href="signup.php">Sign up</a></li>
@@ -23,7 +25,7 @@
             Customize your own workspace comfortly.</p>
             <a class="btn" href="signup.php">Join Us - It's Free</a>
         </div>
-        <img src="orang.png" class="model" alt="People.png">
+        <img src="asset/orang.png" class="model" alt="people">
     </section>
     <div class="ttg-container">
 
