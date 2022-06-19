@@ -7,8 +7,11 @@
     exit;
   }
 
+  // Query total task
   $user_id = $_SESSION['user_id'];
-  
+  $query = "SELECT * FROM day";
+  $day = mysqli_query(connect(), $query);
+
   $query = "SELECT day.day, jadwal_pelajaran.waktu_mulai, jadwal_pelajaran.waktu_selesai, jadwal_pelajaran.nama_jadwal ,jadwal_pelajaran.jadwal_id
   FROM jadwal_pelajaran INNER JOIN day ON jadwal_pelajaran.day_id = day.day_id 
   WHERE jadwal_pelajaran.user_id = '$user_id'";
@@ -16,6 +19,7 @@
   $result = mysqli_query(connect(), $query);
   $data = mysqli_fetch_all($result);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +33,7 @@
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
   </head>
   <body>
-    <div class="sidebar">
+  <div class="sidebar">
       <div class="logo-content">
       <a href="../dashboard/index.php">
         <div class="logo">
@@ -41,20 +45,8 @@
         </a>
         <i class="bx bx-menu" id="btn"></i>
       </div>
-      <!-- <div class="src">
-        <i class="bx bx-search"></i>
-        <input class="ph" type="text" placeholder="Search..." />
-      </div> -->
       <br />
-
       <ul class="nav">
-        <!-- <li>
-          <a href="#">
-            <i class="bx bx-news"></i>
-            <span class="link_name">Updates</span>
-          </a>
-          <span class="tooltip">Updates</span>
-        </li> -->
         <li>
           <a href="#">
             <i class="bx bx-cog"></i>
@@ -64,21 +56,7 @@
         </li>
         <br />
         <li>
-          <a href="../dashboard/index.php">
-            <i class="bx bxs-log-in"></i>
-            <span class="link_name">Getting Started</span>
-          </a>
-          <span class="tooltip">Getting Started</span>
-        </li>
-        <!-- <li>
-          <a href="#">
-            <i class="bx bx-list-ul"></i>
-            <span class="link_name">Feature</span>
-          </a>
-          <span class="tooltip">Feature</span>
-        </li> -->
-        <li>
-          <a href="">
+          <a href="../schedule/">
             <i class="bx bxs-school"></i>
             <span class="link_name">Subject</span>
           </a>
@@ -98,34 +76,17 @@
           </a>
           <span class="tooltip">Book List</span>
         </li>
-        <!-- <li>
-          <a href="#">
-            <i class="bx bx-layer-plus"></i>
-            <span class="link_name">Add Page</span>
-          </a>
-          <span class="tooltip">Add Page</span>
-        </li> -->
-        <br/>
-        <!-- <li>
-          <a href="#">
-            <i class="bx bx-trash"></i>
-            <span class="link_name">Trash</span>
-          </a>
-          <span class="tooltip">Trash</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-list-plus"></i>
-            <span class="link_name">Icon List</span>
-          </a>
-          <span class="tooltip">Icon List</span>
-        </li> -->
+        </br>
+        </br>
+        </br>
         <li>
           <a href="../logout.php">
-            <i class='bx bx-power-off'></i>
-            <span class="link_name">Log out</span>
+            <!-- <i class="bx bx-book-open"></i> -->
+            <center>
+              <span class="link_name btn">logout</span>              
+            </center>
           </a>
-          <span class="tooltip">Log out</span>
+          <span class="tooltip">Book List</span>
         </li>
       </ul>
     </div>
@@ -138,32 +99,31 @@
                     <p>Welcome To MyNote!</p>
                 </li>
             </ul> -->
-        <!-- <section class="new-course">
+        <section class="new-course">
           <div class="container">
             <div class="add-new-course">
               <div class="heading">
-                <h1>Add New Course</h1>
+                <h1>Add New Subject</h1>
               </div>
               <div class="input">
-                <form action="#">
+                <form action="add_schedule.php" method="POST">
                   <div class="label">
-                    <label for="course-name"><h4>Course Name</h4></label>
+                    <label for="course-name"><h4>Subject Name</h4></label>
                   </div>
                   <div class="field">
-                    <input type="text" placeholder="Enter Your Course Name" />
+                    <input type="text" placeholder="Subject's Name" name="subject" required/>
                   </div>
                   <div class="label">
                     <label for="day"><h4>Day</h4></label>
                   </div>
                   <div class="field dropdown">
                     <select name="day" id="day">
-                      <option value="sun">SUN</option>
-                      <option value="mon">MON</option>
-                      <option value="tue">TUE</option>
-                      <option value="wed">WED</option>
-                      <option value="thr">THR</option>
-                      <option value="fri">FRI</option>
-                      <option value="sat">SAT</option>
+                    <?php 
+                      foreach ($day as $b)
+                      {
+                        echo "<option value=".$b['day_id'].">" .$b['day']. "</option>";
+                      }
+                    ?>
                     </select>
                   </div>
                   <div class="label">
@@ -171,27 +131,16 @@
                   </div>
                   <div class="field">
                     <span><label class="small" for="time">From</label></span>
-                    <input type="text" placeholder="Ex. 12.00" />
+                    <input type="time" placeholder="Ex. 12.00" name="time_start" required/>
                     <span><label class="small" for="time">To</label></span>
-                    <span><input type="text" placeholder="Ex. 12.00" /></span>
+                    <span><input type="time" placeholder="Ex. 12.00" name="time_end" required/></span>
                   </div>
                   <div class="submit">
-                    <a href="#"><input type="button" value="Save" /></a>
+                    <a href="#"><input type="submit" value="Save" /></a>
                   </div>
                 </form>
-              </div>
-            </div>
-          </div>
-        </section> -->
 
-        <section class="course-schedule">
-          <div class="container">
-            <div class="schedule">
-              <div class="heading">
-                <h1>Subject Schedule</h1>
-                <!-- <a class="add-btn" href="#"></i>Add Schedule</a> -->
-              </div>
-              <?php
+                <?php
                 if ($_SERVER["REQUEST_METHOD"] == "GET")
                 {
                   if (isset($_GET['res']))
@@ -214,13 +163,6 @@
                       case 4:
                         $str = 'Subject Not Created, Internal Error';
                         break;
-                      case 5:
-                        $str = 'Removed 1 Subject';
-                        break;
-                      case 6:
-                        $str = 'Edited 1 Subject';
-                        $style = 'color:greenyellow';
-                        break;
                     }
                     echo "
                     <div class='label'>
@@ -230,6 +172,18 @@
                 }
 
                 ?>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="course-schedule">
+          <div class="container">
+            <div class="schedule">
+              <div class="heading">
+                <h1>Subject Schedule</h1>
+              </div>
               <div class="table">
                 <table>
                   <thead>
@@ -237,38 +191,43 @@
                       <th>No</th>
                       <th>Day</th>
                       <th>Time</th>
-                      <th>Course Name</th>
-                      <th colspan="2">Action</th>
+                      <th>Subject Name</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                  <?php
-                    $index = 0;
-                    foreach ($data as $d)
-                    {
-                      $index += 1;
-                      echo "<tr>";
-                      echo "<td>$index</td>";
-                      echo "<td>$d[0]</td>";
-                      echo "<td>$d[1] - $d[2]</td>";
-                      echo "<td>$d[3]</td>";
+                    <?php
 
-                      echo "<td><form action='edit_schedule.php' method='post'>
-                      <a href='schedule_form.php?id=$d[4]'><i class='bx bxs-edit'></i></a>
-                      </form>  </td>
-                      
-                      <td><form action='remove_schedule.php' method='post'>
-                      <a href='remove_schedule.php?id=$d[4]'><i class='bx bx-trash'></i></a>
-                      </form> </td>";
+                        // 
+                        $index = 0;
+                        foreach ($data as $d)
+                        {
+                          $index += 1;
+                          echo "<tr>";
+                          echo "<td>$index</td>";
+                          echo "<td>$d[0]</td>";
+                          echo "<td>$d[1] - $d[2]</td>";
+                          echo "<td>$d[3]</td>";
+                        
+                          echo "<td><form action='edit_schedule.php' method='post'>
+                          <input type='hidden' name='jadwal_id' value='$d[4]'>
+                          <span class='iconify' data-icon='ep:edit' style='color: #0fa958' data-width='30'><input type='submit' value=/></span>
+                          </form> 
+                          
+                          <form action='remove_schedule.php' method='post'>
+                          <a href='#2'><span class='iconify' data-icon='carbon:trash-can' style='color: #ff3508; float: right' data-width='30'></span></a>
+                          </form>
 
-                      echo "</tr>";
-                    }
+                          </td>";
+
+
+
+                          echo "</tr>";
+                        }
                     ?>
                   </tbody>
                 </table>
-                <a class="add-btn" href="schedule_form.php"></i>Add Schedule</a>
               </div>
-              
             </div>
           </div>
         </section>

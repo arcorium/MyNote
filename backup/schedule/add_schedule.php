@@ -3,7 +3,7 @@ require_once('../connection.php');
 date_default_timezone_set('Asia/Jakarta');
 
 session_start();
-
+  // check session
 if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]){
     header("location: ../login.php");
     exit;
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         return;
     }
 
-    $query = "SELECT `jadwal_id` FROM jadwal_pelajaran WHERE waktu_mulai='$time_start'";
+    $query = "SELECT `jadwal_id` FROM jadwal_pelajaran WHERE waktu_mulai='$time_start' OR waktu_selesai='$time_end'";
     $res = mysqli_query(connect(), $query);
     $row = mysqli_num_rows($res);
     if ($row > 0)

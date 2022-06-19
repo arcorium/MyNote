@@ -172,40 +172,79 @@ body {
   position: absolute;
   height: 100%;
   width: calc(100% = 300px);
-  left: 100px;
+  left: 80px;
   transition: all 0.2s ease-in-out;
 }
 .home_content .welcome {
   font-size: 25px;
   font-weight: bold;
   color: #000000;
-  margin-left: 50px;
+  margin-left: 150px;
   margin-top: 50px;
 }
-.course-schedule{
-  margin-bottom: 30px;
-}
+
 /* Mengatur margin dari container  */
 .container {
   margin: 1em 4em;
   border-bottom: 3em;
-}
-.course-schedule{
-  margin: 1em 4em;
-  border-bottom: 3em;
   background-color: #ffffff;
   border-radius: 20px;
-  padding: 5px 3px 80px 3px;
+  padding: 20px;
   box-shadow: 0px 5px 8px 0px rgba(118, 78, 249, 0.55);
 }
+
 /* Mengatur tampilan form */
 
 input {
-  background-color: var(--clr-primary);
-  border: none;
-  padding: 0.2em;
+    width: 100%;
+    padding: 12px 55px 12px 12px;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    border-color: #754ef9;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
 }
-
+select{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #754ef9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+.keterangan p{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    color: #000000;
+    background-color: #ffffff;
+}
+.btn-up{
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #754ef9;
+    padding: 0 25px;
+    font-size: 13px;
+    line-height: 40px;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-out 0s;
+    box-shadow: 0px 1px 5px 0px rgba(118, 78, 249, 0.55);
+    background-color: #754ef9;}
+    .btn-up:hover {
+      background-color: #ffffff;
+      color: #754ef9;
+      border-color: #ffffff;
+  }
 .input div {
   margin-top: 5px;
 }
@@ -234,78 +273,6 @@ input {
   border: 1px solid #05a300;
 }
 
-/* Mengatur tampilan tabel */
-table {
-  margin-top: 25px;
-  background-color: #ffffff;
-}
-
-table,
-tbody,
-thead,
-tr,
-td,
-th {
-  border: 1px solid rgb(153, 153, 153);
-  border-collapse: collapse;
-  text-align: center;
-}
-
-td,
-tr,
-th {
-  padding: 0.5em;
-}
-/* Icon Mata */
-.bxs-edit {
-  color: #ffffff;
-  font-size: 25px;
-  padding: 8px 12px;
-  background-color: #05a300;
-  border-radius: 10px;
-  border: 1px solid #05a300;
-  cursor: pointer;
-  transition: all 0.2s ease-out 0s;
-}
-.bxs-edit:hover {
-  color: #05a300;
-  background-color: #ffffff;
-  border: 1px solid #05a300;
-}
-/* Icon Sampah */
-table .bx-trash {
-  color: #ff0000;
-  font-size: 25px;
-  padding: 8px 12px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  border: 1px solid #ff0000;
-  cursor: pointer;
-  transition: all 0.2s ease-out 0s;
-}
-table .bx-trash:hover {
-  color: #ffffff;
-  background-color: #ff0000;
-  border: 1px solid #ff0000;
-}
-.add-btn {
-  float: right;
-  margin-top: 20px;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 8px 12px;
-  background-color: #05a300;
-  border-radius: 10px;
-  border: 1px solid #05a300;
-  cursor: pointer;
-  transition: all 0.2s ease-out 0s;
-}
-.add-btn:hover {
-  color: #05a300;
-  background-color: #ffffff;
-  border: 1px solid #05a300;
-}
 .iconify {
   margin: 1em;
 }

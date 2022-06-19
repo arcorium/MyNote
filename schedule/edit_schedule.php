@@ -5,43 +5,23 @@ date_default_timezone_set('Asia/Jakarta');
 session_start();
   // check session
 if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]){
-header("location: ../login.php");
-exit;
+  header("location: ../login.php");
+  exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $jadwal_id = $_POST['jadwal_id'];
 
-    // $query = "SELECT `user_id`, `last_login` FROM user WHERE (username='$username' AND password='$password') OR (`email`='$username' AND `password`='$password')";
-    // $res = mysqli_query(connect(), $query);
-    // $row = mysqli_num_rows($res);
+    $subject = $_POST['subject'];
+    $day_id = $_POST['day'];
+    $time_start = $_POST['time_start'];
+    $time_end = $_POST['time_end'];
+    $user_id = $_SESSION['user_id'];
 
-    // $_SESSION['last_login'] = null;
-    // $user_id = -1;
-    // if ($row > 0)
-    // {
-    //     $arr = mysqli_fetch_array($res);
-    //     $user_id = $arr['user_id'];
-    //     $_SESSION['last_login'] = new DateTime($arr['last_login']);
-    //     // Update last_login time
-    //     $query = "UPDATE user SET `last_login`=current_timestamp() WHERE `user_id`='$user_id';";
-    //     $res = mysqli_query(connect(), $query);
-    //     if (!$res)
-    //     {
-    //         echo 'Failed to query data';
-    //         return;
-    //     }
+    $query = "UPDATE jadwal_pelajaran SET nama_jadwal='$subject', day_id='$day_id', waktu_mulai='$time_start', waktu_selesai='$time_end'
+    WHERE user_id='$user_id' AND jadwal_id='$jadwal_id'";
+    $res = mysqli_query(connect(), $query);
 
-    //     $_SESSION['user_id'] = $user_id;
-    //     $_SESSION["logged"] = true;
-    //     $_SESSION["username"] = $username;  
-
-
-    //     header('Location: dashboard/index.php');
-    // }
-    // else
-    // {
-    //     header('Location: login.php?res=1');    // No match username or email with password
-    // }
+    header('Location: index.php?res=6');
 }
